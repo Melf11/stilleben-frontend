@@ -1,0 +1,18 @@
+{
+  "security.login.labels.password": "Password",
+  "security.login.labels.password_confirm": "Confirm Password",
+  "security.password_request.labels.back_to_login": "Back to Login",
+  "component.current_time.date": "Datum",
+  "security.not_found.title": "Fehler 404",
+  "security.not_found.description": "Leider konnten wir die angeforderte Seite nicht finden.",
+  "security.not_found.back_home": "Zurück zur Startseite.",
+  "cookie": {
+    "header": "Unsere Webseite nutzt Cookies!",
+    "message": "Um die Seite vernünftig anzeigen zu können, benötigen wir Cookies.",
+    "dismiss": "Alles klar!",
+    "allow": "Zulassen",
+    "deny": "Ablehnen",
+    "link": "Mehr",
+    "policy": "Datenschutz"
+  }
+}
