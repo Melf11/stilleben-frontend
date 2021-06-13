@@ -1,0 +1,134 @@
+.slm-badge-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  @include marginHorizontal(spacing(-1));
+  @include paddingHorizontal(spacing(1));
+  border-radius: 4px;
+  transition: $base-animation;
+
+  .slm-badge-item__state {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    @include square(spacing(1.2));
+    background-color: var(--tertiary);
+  }
+
+  .slm-badge-item__text {
+    margin-left: spacing(3);
+    color: var(--tertiary);
+  }
+
+  &.slm-badge-item--active {
+    background-color: var(--tertiary);
+    box-shadow: $base-box-shadow;
+
+    .slm-badge-item__state {
+      background-color: white;
+    }
+    .slm-badge-item__text {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  ////////////////////
+  // States
+  ////////////////////
+  &.slm-badge-item--success {
+    .slm-badge-item__state {
+      background-color: var(--success);
+    }
+
+    .slm-badge-item__text {
+      color: var(--success);
+    }
+
+    &.slm-badge-item--active {
+      background-color: var(--success);
+
+      .slm-badge-item__state {
+        background-color: white;
+      }
+
+      .slm-badge-item__text {
+        color: white;
+      }
+    }
+  }
+
+  &.slm-badge-item--warning {
+    .slm-badge-item__state {
+      background-color: var(--warning);
+    }
+
+    .slm-badge-item__text {
+      color: var(--warning);
+    }
+
+
+    &.slm-badge-item--active {
+      background-color: var(--warning);
+
+      .slm-badge-item__state {
+        background-color: white;
+      }
+
+      .slm-badge-item__text {
+        color: white;
+      }
+    }
+  }
+
+  &.slm-badge-item--error {
+    .slm-badge-item__state {
+      background-color: var(--error);
+    }
+
+    .slm-badge-item__text {
+      color: var(--error);
+    }
+
+
+    &.slm-badge-item--active {
+      background-color: var(--error);
+
+      .slm-badge-item__state {
+        background-color: white;
+      }
+
+      .slm-badge-item__text {
+        color: white;
+      }
+    }
+  }
+
+
+  &:hover {
+    background-color: lighten(var(--tertiary), 30%);
+    box-shadow: $base-box-shadow;
+    cursor: pointer;
+
+    .slm-badge-item__state {
+      background-color: white;
+    }
+    .slm-badge-item__text {
+      color: white;
+      font-weight: bold;
+    }
+
+    &.slm-badge-item--success {
+      opacity: .6;
+      background-color: var(--success);
+    }
+    &.slm-badge-item--warning {
+      opacity: .6;
+      background-color: var(--warning);
+    }
+    &.slm-badge-item--error {
+      opacity: .6;
+      background-color: var(--error);
+    }
+  }
+}

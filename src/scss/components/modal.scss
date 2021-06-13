@@ -1,0 +1,62 @@
+
+.slm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1500;
+  height: 100vh;
+  width: 100vw;
+
+
+  .slm-modal__backdrop {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+  }
+
+  .slm-modal__wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1510;
+
+    @include paddingVertical(spacing(4));
+    @include paddingHorizontal(spacing(8));
+    background-color: var(--primary);
+
+    width: 80vw;
+    height: 80vh;
+
+    border-radius: $base-border-radius;
+    box-shadow: $base-box-shadow;
+
+    .slm-modal__wrapper__title {
+      margin-bottom: spacing(4);
+    }
+
+    .slm-modal__wrapper__content {
+
+    }
+
+    .slm-modal__wrapper__close {
+      z-index: 1520;
+      position: absolute;
+      top: spacing(4);
+      right: spacing(4);
+      font-size: 20px;
+      opacity: .5;
+      transition: $base-animation;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+        opacity: 1;
+      }
+    }
+  }
+}

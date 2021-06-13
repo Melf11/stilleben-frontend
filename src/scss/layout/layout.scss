@@ -1,0 +1,58 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH Website
+//////////////////////////////////////////////////
+
+
+body {
+  background-color: var(--secondary);
+}
+
+.slm-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.slm-section, .slm-element, .slm-form {
+  .slm-element__map, .slm-element__article, .slm-form__content, .slm-section__headline, .slm-element__cards {
+    margin: 0 auto;
+    max-width: 1200px;
+  }
+
+  .slm-element__map {
+    width: 100%;
+  }
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+
+  .layout__content {
+    position: relative;
+    //margin-top: spacing(9);
+    width: 100%;
+    //height: calc(100vh - #{spacing(9)});
+    display: flex;
+
+    .layout__content__sidebar {
+      background-color: lighten(var(--primary), 5%);
+      height: 100%;
+      min-width: spacing(20);
+      @include paddingVertical(spacing(4));
+      box-shadow: $base-box-shadow;
+    }
+    .layout__content__content {
+      //overflow: auto;
+      width: 100%;
+
+    }
+  }
+  .layout__footer {
+
+  }
+}
+

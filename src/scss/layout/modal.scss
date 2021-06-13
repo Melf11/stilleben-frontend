@@ -1,0 +1,82 @@
+$modal-height: 80vh;
+$modal-width: 80vw;
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(black, .5);
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity $base-animation-duration $base-animation-easing;
+
+  &.in {
+    opacity: 1;
+  }
+}
+
+modal-container {
+  z-index: 1200;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: $base-box-shadow-wide;
+
+
+  .modal-dialog {
+    z-index: 1250;
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $modal-width;
+    height: $modal-height;
+    border-radius: $base-border-radius;
+
+    .modal-content {
+
+      .modal-close {
+        position: absolute;
+        color: var(--primary);
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+        font-size: 30px;
+        top: spacing(1.5);
+        right: spacing(2);
+        transition: $base-animation;
+
+        &:hover {
+          cursor: pointer;
+          color: var(--tertiary);
+        }
+      }
+    }
+  }
+}
+
+// Fade in Animation for modal
+.modal {
+
+  opacity: 0;
+  transition: $base-animation;
+
+  &.in {
+    opacity: 1;
+
+  }
+}
+
+.modal-open {
+  overflow: hidden;
+
+  .modal-dialog {
+    overflow: hidden;
+  }
+}
+

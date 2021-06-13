@@ -1,0 +1,21 @@
+<ng-container *ngIf="control; else noControl">
+  <input type="checkbox"
+         [value]="switchState"
+         [formControl]="getFormControl(control)"
+         id="{{ id }}"
+  >
+</ng-container>
+
+<ng-template #noControl>
+  <input type="checkbox" [value]="switchState"
+         [checked]="switchState"
+         (change)="switchState = !switchState; switched.emit(switchState)"
+         id="{{ id }}"
+  >
+</ng-template>
+
+
+<label class="slider" for="{{ id }}">
+  <!--<span class="slider&#45;&#45;label-left">Off</span>-->
+  <!--<span class="slider&#45;&#45;label-right">On</span>-->
+</label>

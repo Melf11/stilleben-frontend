@@ -1,0 +1,31 @@
+<div class="layout" [ngClass]="{ 'layout--sidebar' : hasSidebar}">
+  <div class="layout__alerts" *ngIf="hasAlerts">
+    <ng-content select="slm-layout-alerts"></ng-content>
+  </div>
+
+  <div class="layout__header" *ngIf="hasHeader">
+    <ng-content select="slm-layout-header"></ng-content>
+  </div>
+
+  <div class="layout__hero" *ngIf="hasHero">
+    <ng-content select="slm-layout-hero"></ng-content>
+  </div>
+
+  <div class="layout__content">
+    <div class="layout__content__sidebar" *ngIf="hasSidebar">
+      <ng-content select="slm-layout-sidebar"></ng-content>
+    </div>
+
+    <div class="layout__content__content" *ngIf="hasContent">
+      <ng-content select="slm-layout-content"></ng-content>
+    </div>
+  </div>
+
+  <div class="layout__footer" *ngIf="hasFooter">
+    <ng-content select="slm-layout-footer"></ng-content>
+  </div>
+
+</div>
+
+
+

@@ -1,0 +1,31 @@
+.slm-list {
+  display: block;
+
+  .slm-list__title {
+      font-size: 12px;
+      font-weight: 300;
+  }
+
+  .slm-list__list {
+    padding: 0;
+    list-style: none;
+
+    .slm-list__list__item {
+      @include paddingVertical(spacing(.5));
+
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--tertiary);
+      display: flex;
+    }
+  }
+
+  &.slm-list--no-badges {
+    .slm-badge-item__state {
+      display: none;
+    }
+    .slm-badge-item__text {
+      margin-left: 0;
+    }
+  }
+}

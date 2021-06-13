@@ -1,0 +1,17 @@
+<ng-container *ngIf="page">
+  <div class="slm-hero__background" id="heroBack">
+    <div class="slm-hero__background__inner" *ngIf="heroUrl">
+      <img [lazyLoad]="heroUrl" ngx-parallax (onStateChange)="loadedImage($event)" />
+    </div>
+  </div>
+  <div class="slm-hero__content">
+
+    <div class="slm-hero__content__normal">
+      <img [lazyLoad]="'/assets/brand_shadowed.svg'" />
+    </div>
+    <div class="slm-hero__content__geek">
+      <img [lazyLoad]="'/assets/brand_code.svg'" />
+    </div>
+  </div>
+</ng-container>
+

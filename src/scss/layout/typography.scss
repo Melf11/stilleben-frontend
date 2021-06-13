@@ -1,0 +1,152 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH Website
+//////////////////////////////////////////////////
+
+html, body {
+    font-family: $base-font-family;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text);
+    font-size: getFontSize(md);
+    letter-spacing: 0;
+    line-height: 1.5;
+
+  }
+
+  ::selection {
+    color: var(--primary);
+    background: var(--tertiary);
+  }
+
+  // Headings
+  // ------------------------------------
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $base-headline-font-family;
+    margin-bottom: 1rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    color: var(--text);
+  }
+
+  h1 {
+    font-size: calculateRemFontSize(72px);
+    line-height: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    font-size:calculateRemFontSize(36px);
+    line-height: 2.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    color: var(--tertiary);
+    font-size: 0.9rem;
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+  }
+
+  h6 {
+    font-size: 0.3535rem;
+  }
+
+ p {
+   margin: 0;
+ }
+
+ hr {
+   @include marginVertical(spacing(2));
+   opacity: .1;
+ }
+  // Links
+  // ------------------------------------
+
+  a {
+    color: var(--tertiary);
+    transition: $base-animation;
+    position: relative;
+    text-decoration: none;
+    top: 1px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      transition: $base-animation;
+      bottom: 0;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--tertiary);
+      opacity: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: lighten(var(--tertiary), 10%);
+
+      &:before {
+        opacity: 1;
+        left: 0;
+        width: 100%;
+        background-color: lighten(var(--tertiary), 10%);
+      }
+    }
+
+  }
+
+
+  // Media Breakpoint down MD
+  // ---------------------------
+
+  @include media-breakpoint-down(md) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+  }
+
+  //.max-lines {
+  //    display: block; /* or inline-block */
+  //    text-overflow: ellipsis;
+  //    word-wrap: break-word;
+  //    overflow: hidden;
+  //    max-height: 4.5em;
+  //}
+
+
+  .max-lines p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }

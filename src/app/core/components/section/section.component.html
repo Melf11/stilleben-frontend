@@ -1,0 +1,16 @@
+<ng-container *ngIf="section">
+
+  <div class="slm-section__headline" *ngIf="section.title">
+<!--    <h3>-->
+<!--      {{ section.title }}-->
+<!--    </h3>-->
+<!--    <div class="divider"></div>-->
+  </div>
+
+  <slm-element-component *ngFor="let element of (section.elements | orderBy: 'position')"
+                     [pre]="section.title"
+                     [element]="element"
+                     [@fadeInOut]
+  ></slm-element-component>
+</ng-container>
+

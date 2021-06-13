@@ -1,0 +1,35 @@
+<div class="slm-filter-list">
+    <!-- TODO: Filter -->
+    <!--    <div class="slm-filter-list__header">-->
+    <!--        <div class="slm-filter-list__header__title"></div>-->
+    <!--        <div class="slm-filter-list__header__filter"></div>-->
+    <!--    </div>-->
+
+    <div class="slm-filter-list__list">
+        <table>
+            <tr class="slm-filter-list__list__item slm-filter-list__list__item--header" *ngIf="tableHeaders">
+                <th class="slm-filter-list__list__item__element" *ngFor="let header of tableHeaders; let i = index"
+                    [ngClass]="{'slm-filter-list__list__item__element--actions': i === tableHeaders.length - 1}">{{ header.label }}</th>
+            </tr>
+
+            <ng-container *ngIf="!isLoading; else loadingTemplate">
+                <tr class="slm-filter-list__list__item" *ngFor="let item of items" [ngClass]="{'slm-filter-list__list__item--inactive': item.inactive}">
+                    <td class="slm-filter-list__list__item__element"
+                        *ngFor="let element of item.elements">{{ element }}</td>
+                    <td class="slm-filter-list__list__item__element slm-filter-list__list__item__element--actions">
+                        <ul *ngIf="item.actions.length">
+                            <li *ngFor="let action of item.actions"
+                                (click)="actionClicked.emit({action:action.value, id: item.id})"
+                            tooltip="{{ action.label }}">
+                                <i class="{{ action.icon }}"></i>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </ng-container>
+            <ng-template #loadingTemplate>
+                <slm-loading [isLoading]="true"></slm-loading>
+            </ng-template>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div *ngIf="apiLoaded | async">
+  <google-map [options]="options" height="300" [width]="'auto'" [zoom]="14">
+    <map-marker #marker="mapMarker"
+                *ngFor="let markerPosition of markerPositions"
+                [position]="markerPosition"
+                [options]="markerOptions"
+                (mapClick)="openInfoWindow(marker)"
+    ></map-marker>
+    <map-info-window *ngIf="infoWindowText">
+      <div [innerHTML]="infoWindowText"></div>
+    </map-info-window>
+  </google-map>
+</div>

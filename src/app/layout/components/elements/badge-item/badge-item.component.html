@@ -1,0 +1,14 @@
+<div class="slm-badge-item__state"></div>
+<div class="slm-badge-item__text">
+    <div class="slm-badge-item__text__left">
+        {{ text ? text : '' }}
+    </div>
+    <div class="slm-badge-item__text__right" *ngIf="textRight">
+        {{ textRight ? textRight : '' }}
+    </div>
+</div>
+<div class="slm-badge-item__loader">
+    <span>.</span>
+    <span>.</span>
+    <span>.</span>
+</div>

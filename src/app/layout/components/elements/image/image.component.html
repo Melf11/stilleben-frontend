@@ -1,0 +1,19 @@
+<!--<div class="slm-image__container" *ngIf="url" libRfxParallax [imageUrl]="url" [imageZIndex]="0" [parallaxPercentage]="30" [@fadeInOut]></div>-->
+<img *ngIf="smallUrl"
+     [lazyLoad]="smallUrl"
+     [alt]="alt"
+     [offset]="lazyLoadOffset"
+     (click)="openLightbox(lightboxModal)"
+     data-toggle="modal" data-target="#lightboxModal"
+/>
+
+
+<ng-template #lightboxModal>
+  <div class="modal-close" (click)="closeModal()">
+    <i class="far fa-times-circle"></i>
+  </div>
+
+  <div class="lightbox">
+    <img [src]="largeUrl" [alt]="alt">
+  </div>
+</ng-template>

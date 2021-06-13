@@ -1,0 +1,109 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH
+//////////////////////////////////////////////////
+//
+// Variables
+//////////////////////////////////////////////////
+
+// Paths
+// ---------------------------------------------------------
+
+$path-to-images: "/assets/images/";
+$path-to-fonts: "/assets/fonts/";
+
+// Imports
+// ---------------------------------------------------------
+@import "fonts/fonts";
+@import "typo";
+@import "colors";
+
+
+// Spacing
+// ---------------------------------------------------------
+$base-spacing: 10px;
+
+@function spacing($mod: 1) {
+  @return $base-spacing * $mod;
+}
+
+
+// Layout
+// ---------------------------------------------------------
+$layout-nav-pre-height: spacing(3);
+$layout-nav-main-height: spacing(12);
+$layout-footer-height: spacing(8);
+
+// Forms
+// ---------------------------------------------------------
+$input-padding-y: spacing(1);
+$input-padding-x: spacing(2);
+
+
+// Animation
+// ---------------------------------------------------------
+$base-animation-easing: ease;
+$base-animation-duration: .3s;
+$base-animation-attributes: all;
+
+$base-animation: $base-animation-attributes $base-animation-easing $base-animation-duration;
+
+// Borders
+// ---------------------------------------------------------
+$base-border: 1px solid var(--primary);
+$base-border-radius: spacing(.7);
+
+// Box-Shadows
+// ---------------------------------------------------------
+$base-box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+$base-box-shadow-bottom: 0 5px 10px rgba(0, 0, 0, .1);
+$base-box-shadow-darker: 0 0 8px rgba(0, 0, 0, .5);
+$base-box-shadow-wide: 0 0 spacing(2) rgba(0, 0, 0, .25);
+
+// Z-Indexes
+// ---------------------------------------------------------
+$zindex-modal: 1200;
+
+// Modal
+// ---------------------------------------------------------
+$modal-dialog-margin: spacing(4);
+$modal-transition: $base-animation;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your template will change,
+// adapting to different screen sizes, for use in media queries.
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+// scss-docs-end grid-breakpoints
+
+@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+) !default;
+// scss-docs-end container-max-widths
+
+@include _assert-ascending($container-max-widths, "$container-max-widths");
+

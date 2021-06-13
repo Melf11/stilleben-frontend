@@ -1,0 +1,19 @@
+<li class="slm-list__list__item">
+    <div *ngIf="state" [@fadeInOut]>
+        <slm-badge-item [text]="text" [loading]="loading" [active]="active" [state]="state" [textRight]="textRight"></slm-badge-item>
+    </div>
+    <div *ngIf="!state" [@fadeInOut]>
+        <div class="slm-list__list__item__text">
+            <div class="slm-list__list__item__text__left">{{ text }}</div>
+            <div class="slm-list__list__item__text__right" *ngIf="textRight">{{ textRight }}</div>
+        </div>
+    </div>
+
+    <ul class="slm-list__list__item__list">
+        <ng-content></ng-content>
+    </ul>
+
+    <div class="slm-list__list__item__badge" *ngIf="badge" [ngClass]="[badge.state ? 'slm-list__list__item__badge--' + badge.state : '']">
+        {{ badge.text }}
+    </div>
+</li>

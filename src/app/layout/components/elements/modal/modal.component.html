@@ -1,0 +1,16 @@
+<div class="slm-modal" *ngIf="active" [@fadeInOut] [ngClass]="[state ? 'slm-modal--' + state : '']">
+    <div class="slm-modal__backdrop" (click)="closeModal()"></div>
+    <div class="slm-modal__wrapper">
+        <div class="slm-modal__wrapper__close" (click)="closeModal()">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="slm-modal__wrapper__title" *ngIf="title">
+            <h2>
+                {{ title }}
+            </h2>
+        </div>
+        <div class="slm-modal__wrapper__content">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

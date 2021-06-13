@@ -1,0 +1,32 @@
+<slm-layout [hasHero]="true"
+            [hasFooter]="true"
+            [hasAlerts]="true"
+            [hasContent]="true"
+            [hasHeader]="true"
+            [hasSidebar]="false"
+>
+  <slm-layout-header>
+    <slm-header-component></slm-header-component>
+  </slm-layout-header>
+  <slm-layout-hero>
+    <slm-hero-component></slm-hero-component>
+  </slm-layout-hero>
+
+<!--  <slm-layout-sidebar>-->
+<!--    <sidebar-component></sidebar-component>-->
+<!--  </slm-layout-sidebar>-->
+
+  <slm-layout-content>
+    <slm-section-component
+      *ngFor="let section of sections"
+      [section]="section"
+      [id]="sectionId(section.title)"
+      in-view
+      (isInView)="setActiveSection($event, section)"
+    ></slm-section-component>
+  </slm-layout-content>
+
+  <slm-layout-footer>
+    <slm-footer-component></slm-footer-component>
+  </slm-layout-footer>
+</slm-layout>

@@ -1,0 +1,81 @@
+<div class="slm-header" id="slm-header-global">
+  <div class="slm-header__pre">
+    <div class="slm-header__pre__brand"></div>
+    <div class="slm-header__pre__nav" >
+      <ul class="slm-header__pre__nav__list" >
+        <ng-container *ngFor="let item of navigationService.preNavPages">
+          <li [ngClass]="[checkActivePage(item) ? 'slm-header__pre__nav__list__item slm-header__pre__nav__list__item--active' : 'slm-header__pre__nav__list__item']">
+            <a [routerLink]="'/'  + translateService.currentLang + '/' +sectionId(item.title)">{{ item.title }}</a>
+          </li>
+        </ng-container>
+        <li class="slm-header__pre__nav__list__item" (click)="switchColorTheme()">
+          <ng-container [ngSwitch]="theme">
+
+            <div *ngSwitchCase="'theme-dark'" class="color-theme-switch">
+              i'm just an audiophile, please disable this ugly geek mode
+              <i class="fas fa-adjust" ></i>
+            </div>
+            <div *ngSwitchCase="'theme-light'" class="color-theme-switch">
+              switch(to ? geek$ : _mode).pipe(now())
+              <i class="fas fa-adjust"></i>
+            </div>
+          </ng-container>
+
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="slm-header__main">
+    <div class="slm-header__main__brand" (click)="navigateHome()">
+      <div class="slm-header__main__brand__logo">
+        <!-- Logo Container-->
+        <div class="slm-header__main__brand__logo__img"></div>
+      </div>
+      <div class="slm-header__main__brand__font">
+        <!-- Font Container-->
+        <div class="slm-header__main__brand__font__img"></div>
+      </div>
+    </div>
+    <div class="slm-header__main__burger" [ngClass]="{'slm-header__main__burger--mobile-in': mobileNavOpen}" (click)="mobileNavOpen = !mobileNavOpen">
+      <div class="burger-icon"></div>
+    </div>
+
+    <div class="slm-header__main__nav" [ngClass]="{'slm-header__main__nav--mobile-in': mobileNavOpen}">
+      <ul class="slm-header__main__nav__list" *ngIf="activePage && navigationService.mainNavPages">
+
+        <!-- Add global Page Links to nav-->
+        <ng-container *ngFor="let page of navigationService.mainNavPages">
+          <li [ngClass]="[checkActivePage(page) ? 'slm-header__main__nav__list__item slm-header__main__nav__list__item--active' : 'slm-header__main__nav__list__item']" >
+            <div class="slm-header__main__nav__list__item__background"></div>
+            <div class="slm-header__main__nav__list__item__text" (click)="navigateToPage(page); mobileNavOpen = false;">{{ page.title }}</div>
+            <ul class="slm-header__main__nav__list__item__section-list" [id]="sectionId(page.title) + '-section-list'" [ngClass]="{'slm-header__main__nav__list__item__section-list--hidden': sectionListHidden, 'slm-header__main__nav__list__item__section-list--right-align': sectionListRightAlign}" *ngIf="checkActivePage(page)">
+              <li class="slm-header__main__nav__list__item__section-list__background" [id]="sectionId(page.title) + '-section-background'"></li>
+              <ng-container *ngFor="let section of activePage.sections">
+                <li class="slm-header__main__nav__list__item__section-list__item" [id]="sectionId(section.title) + '-nav'" >
+                  <div class="slm-header__main__nav__list__item__section-list__item__background"></div>
+                  <div class="slm-header__main__nav__list__item__section-list__item__text" (click)="navigateToSection(section); mobileNavOpen = false;">{{ section.title }}</div>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+
+  <ul class="slm-header__main__mobile__section-list" [ngClass]="{'slm-header__main__mobile__section-list--hidden': sectionListHidden || mobileNavOpen}" *ngIf="activePage">
+    <li class="slm-header__main__mobile__section-list__background" [id]="sectionId(activePage.title) + '-mobile-section-background'"></li>
+    <ng-container *ngFor="let section of activePage.sections">
+      <li class="slm-header__main__mobile__section-list__item" [id]="sectionId(section.title) + '-nav-mobile'" >
+        <div class="slm-header___nav__mobile__section-list__item__background"></div>
+        <div class="slm-header___nav__mobile__section-list__item__text" (click)="navigateToSection(section); mobileNavOpen = false;">{{ section.title }}</div>
+      </li>
+    </ng-container>
+  </ul>
+</div>
+
+
+<div class="back-to-top back-to-top--hidden" id="back-to-top-button" (click)="scrollToTop()">
+  <i class="fas fa-chevron-up"></i>
+</div>

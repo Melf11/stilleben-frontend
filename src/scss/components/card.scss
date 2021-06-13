@@ -1,0 +1,82 @@
+.slm-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slm-card {
+  display: block;
+  background-color: var(--primary);
+  border-radius: $base-border-radius;
+  box-shadow: $base-box-shadow;
+  margin: 0 spacing(2) spacing(2) 0;
+  flex-basis: calc(33% - #{spacing(2)});
+  transition: $base-animation;
+
+  .slm-card__media {
+    height: 210px;
+    overflow: hidden;
+    margin-bottom: spacing(2);
+
+    .slm-image {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .slm-card__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: spacing(2);
+    @include paddingHorizontal(spacing(2))
+  }
+
+  .slm-card__description {
+    @include paddingHorizontal(spacing(2));
+    padding-bottom: spacing(2);
+  }
+
+  .slm-card__list {
+    padding: 0;
+    list-style: none;
+
+    .slm-card__list__item {
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      justify-content: space-between;
+
+      font-size: 12px;
+
+
+      span {
+        &:last-child {
+          font-weight: bold;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+
+  &.slm-card--success {
+    color: var(--success-dark);
+    background-color: var(--success-light);
+  }
+
+  &.slm-card--warning {
+    color: var(--warning-dark);
+    background-color: var(--warning-light);
+  }
+
+  &.slm-card--error {
+    color: var(--error-dark);
+    background-color: var(--error-light);
+  }
+
+  &:hover {
+    z-index: 1000;
+    cursor: pointer;
+    transform: scale(1.03);
+  }
+}

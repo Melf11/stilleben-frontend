@@ -1,0 +1,84 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH Website
+//////////////////////////////////////////////////
+//
+// Main Styling
+//////////////////////////////////////////////////
+
+
+// Utilities
+// ---------------------------------------------------------
+//@import "~bootstrap/scss/bootstrap-grid";
+@import "utilities/mixins";
+@import "utilities/functions";
+@import "utilities/variables";
+@import "utilities/reboot";
+
+
+// External Libraries
+// ---------------------------------------------------------
+//@import '~swiper/swiper';
+//@import "~@ng-select/ng-select/themes/default.theme.css";
+
+// Layout
+// ---------------------------------------------------------
+@import "layout/typography";
+@import "layout/layout";
+@import "layout/images";
+@import "layout/modal";
+
+// Components
+// ---------------------------------------------------------
+@import "components/action-bar";
+@import "components/burger";
+@import "components/button";
+@import "components/divider";
+@import "components/header";
+@import "components/hero";
+@import "components/loading";
+@import "components/section";
+@import "components/footer";
+@import "components/googlemaps";
+@import "components/image";
+@import "components/back-to-top";
+@import "components/switch";
+@import "components/color-theme-switch";
+@import "components/sidebar";
+@import "components/login";
+@import "components/content";
+@import "components/list";
+@import "components/badge-item";
+@import "components/card";
+@import "components/modal";
+@import "components/alert";
+@import "components/loading-element";
+
+// Components
+// ---------------------------------------------------------
+@import "forms/forms";
+@import "forms/select";
+@import "forms/input";
+
+// Project Specific
+.slm {
+  display: block;
+  position: relative;
+  transition: opacity $base-animation-duration $base-animation-easing;
+  opacity: 0;
+  animation: generalFadeIn $base-animation-duration forwards;
+
+}
+
+@keyframes generalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+

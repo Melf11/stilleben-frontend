@@ -1,0 +1,18 @@
+<div class="slm-content">
+    <div class="slm-content__header">
+        <div class="slm-content__header__aside" *ngIf="hasHeaderAside">
+            <ng-content select="slm-content-header-aside"></ng-content>
+        </div>
+        <div class="slm-content__header__main">
+            <ng-content select="slm-content-header-main"></ng-content>
+        </div>
+    </div>
+    <div class="slm-content__content">
+        <div class="slm-content__content__aside" *ngIf="hasContentAside">
+            <ng-content select="slm-content-content-aside"></ng-content>
+        </div>
+        <div class="slm-content__content__main">
+            <ng-content select="slm-content-content-main"></ng-content>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.color-theme-switch {
+  opacity: .8;
+  transition: $base-animation;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--tertiary);
+  }
+}

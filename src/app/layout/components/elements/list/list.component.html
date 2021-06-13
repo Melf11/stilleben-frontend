@@ -1,0 +1,6 @@
+<div class="slm-list" [ngClass]="[!hasBadges ? 'slm-list--no-badges' : '', type ? 'slm-list--' + type : '']">
+    <div class="slm-list__title"*ngIf="title">{{ title }}</div>
+    <ul class="slm-list__list">
+        <ng-content></ng-content>
+    </ul>
+</div>

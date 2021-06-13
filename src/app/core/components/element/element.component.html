@@ -1,0 +1,60 @@
+<ng-container *ngIf="element">
+  <div class="slm-element" [ngClass]="{'slm-element--highlighed': element.is_highlighted}">
+    <div class="slm-element__article" >
+      <div class="slm-element__article__content">
+        <div class="slm-element__article__content__pre" *ngIf="pre && !element.is_single_page_element">
+          {{ pre }}
+        </div>
+        <div class="slm-element__article__content__headline" *ngIf="!element.is_single_page_element">
+          {{ element.title }}
+        </div>
+        <div class="slm-element__article__content__text" [innerHTML]="markdownRenderer"></div>
+      </div>
+      <div class="slm-element__article__map" *ngIf="element && element.map_data">
+        <div class="slm-element__article__map__container">
+          <slm-map-component
+            [apiKey]="element.map_data.api_key"
+            [infoWindowText]="element.map_data.marker_text"
+            [latitude]="getNumberOfString(element.map_data.latitude)"
+            [longitude]="getNumberOfString(element.map_data.longitude)"
+          ></slm-map-component>
+        </div>
+      </div>
+
+      <div class="slm-element__article__media" *ngIf="element.image && !element.map_data">
+        <slm-image [smallUrl]="getSmallImageUrl(element.image)"
+                      [largeUrl]="getLargeImageUrl(element.image)"
+                      [alt]="element.image.alternativeText ? element.image?.alternativeText : ''"
+                      [lazyLoadOffset]="100"
+        ></slm-image>
+      </div>
+    </div>
+
+    <div class="slm-element__cards" *ngIf="element && element.offers?.length">
+      <div class="slm-card-grid">
+        <div class="slm-card" *ngFor="let card of element.offers">
+          <div class="slm-card__media">
+            <slm-image [smallUrl]="getSmallImageUrl(card.image)"
+                       [largeUrl]="getLargeImageUrl(card.image)"
+                       [alt]="card.image.alternativeText ? card.image.alternativeText : ''"
+                       [lazyLoadOffset]="100"
+            ></slm-image>
+          </div>
+          <div class="slm-card__title">
+            {{ card.title }}
+          </div>
+          <div class="slm-card__description">
+            {{ card.short_description }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slm-element__forms" *ngIf="element && element.forms?.length">
+      <slm-form-component *ngFor="let form of element.forms"
+                      [form]="form"
+      ></slm-form-component>
+    </div>
+  </div>
+</ng-container>
+

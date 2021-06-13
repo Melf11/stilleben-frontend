@@ -1,0 +1,11 @@
+
+<slm-layout [hasHero]="false" [hasFooter]="false" [hasSidebar]="false">
+  <slm-layout-content>
+    <div class="login">
+      <h2>{{ 'security.not_found.title' | translate }}</h2>
+      <p class="form-label">{{ currentPath }}</p>
+      <p>{{ 'security.not_found.description' | translate }}</p>
+      <a [routerLink]="['/']">{{ 'security.not_found.back_home' | translate }}</a>
+    </div>
+  </slm-layout-content>
+</slm-layout>

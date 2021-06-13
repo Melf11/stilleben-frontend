@@ -1,0 +1,256 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH
+//////////////////////////////////////////////////
+//
+// Colors
+//////////////////////////////////////////////////
+
+
+// Dark Theme
+:root {
+  --primary: hsl(157, 98%, 82%);
+  --primary-h: 157;
+  --primary-s: 98%;
+  --primary-l: 82%;
+  --secondary: hsl(157, 37%, 72%);
+  --secondary-h: 157;
+  --secondary-s: 37%;
+  --secondary-l: 72%;
+  --tertiary: hsl(336, 99%, 59%);
+  --tertiary-h: 336;
+  --tertiary-s: 99%;
+  --tertiary-l: 59%;
+
+  --text: hsl(0, 0%, 20%);
+  --text-h: 0;
+  --text-s: 0%;
+  --text-l: 20%;
+
+  --error-dark: hsl(0, 91%, 35%);
+  --error-dark-h: 0;
+  --error-dark-s: 91;
+  --error-dark-l: 35%;
+  --error: hsl(0, 91%, 62%);
+  --error-h: 0;
+  --error-s: 91;
+  --error-l: 62%;
+  --error-light: hsla(0, 100%, 84%);
+  --error-light-h: 0;
+  --error-light-s: 100;
+  --error-light-l: 84%;
+
+  --success-dark: hsla(130, 58%, 33%);
+  --success-dark-h: 130;
+  --success-dark-s: 58;
+  --success-dark-l: 55%;
+  --success: hsl(130, 58%, 55%);
+  --success-h: 130;
+  --success-s: 58;
+  --success-l: 55%;
+  --success-light: hsl(130, 56%, 91%);
+  --success-light-h: 130;
+  --success-light-s: 58;
+  --success-light-l: 55%;
+
+  --warning-dark: hsla(47, 100%, 25%);
+  --warning-dark-h: 47;
+  --warning-dark-s: 100;
+  --warning-dark-l: 25%;
+  --warning: hsl(40, 100%, 50%);
+  --warning-h: 47;
+  --warning-s: 100;
+  --warning-l: 50%;
+  --warning-light: hsl(50, 100%, 75%);
+  --warning-light-h: 47;
+  --warning-light-s: 100;
+  --warning-light-l: 50%;
+
+
+  --code-background: hsla(0, 0%, 17%, 1);
+  --code-orange: hsla(27, 60%, 48%, 1);
+  --code-purple: hsla(279, 23%, 56%, 1);
+  --code-green: hsla(97, 20%, 42%, 1);
+  --code-white: hsla(97, 0%, 93%, 1);
+}
+
+
+:root[data-theme="theme-light"] {
+
+  .slm-section {
+    &:before, &:after {
+      display: none;
+    }
+  }
+
+  .slm-header__main {
+    background-color: alpha(var(--primary), .90);
+  }
+
+}
+
+:root[data-theme="theme-dark"] {
+  //--primary: hsl(22, 15%, 25%);
+  //--primary-h: 22;
+  //--primary-s: 33%;
+  //--primary-l: 26%;
+  //--secondary: hsl(22, 5%, 18%);
+  //--secondary-h: 22;
+  //--secondary-s: 32%;
+  //--secondary-l: 31;
+  //--tertiary: hsl(22, 100%, 50%);
+  //--tertiary-h: 22;
+  //--tertiary-s: 100%;
+  //--tertiary-l: 50%;
+  //
+  //--text: hsl(0, 0%, 95%);
+  //--text-h: 0;
+  //--text-s: 0%;
+  //--text-l: 95%;
+  //
+  //--error-dark: hsl(0, 91%, 35%);
+  //--error-dark-h: 0;
+  //--error-dark-s: 91;
+  //--error-dark-l: 35%;
+  //--error: hsl(0, 91%, 62%);
+  //--error-h: 0;
+  //--error-s: 91;
+  //--error-l: 62%;
+  //--error-light: hsla(0, 100%, 84%);
+  //--error-light-h: 0;
+  //--error-light-s: 100;
+  //--error-light-l: 84%;
+  //
+  //--success-dark: hsla(130, 58%, 33%);
+  //--success-dark-h: 130;
+  //--success-dark-s: 58;
+  //--success-dark-l: 55%;
+  //--success: hsl(130, 58%, 55%);
+  //--success-h: 130;
+  //--success-s: 58;
+  //--success-l: 55%;
+  //--success-light: hsl(130, 56%, 91%);
+  //--success-light-h: 130;
+  //--success-light-s: 58;
+  //--success-light-l: 55%;
+  //
+  //--warning-dark: hsla(47, 100%, 25%);
+  //--warning-dark-h: 47;
+  //--warning-dark-s: 100;
+  //--warning-dark-l: 25%;
+  //--warning: hsl(40, 100%, 50%);
+  //--warning-h: 47;
+  //--warning-s: 100;
+  //--warning-l: 50%;
+  //--warning-light: hsl(50, 100%, 75%);
+  //--warning-light-h: 47;
+  //--warning-light-s: 100;
+  //--warning-light-l: 50%;
+  //
+
+  --primary: hsla(0, 0%, 10%, 1);
+  --primary-h: 0;
+  --primary-s: 0%;
+  --primary-l: 17%;
+
+  --secondary: hsl(216, 4%, 23%);
+  --secondary-h: 216;
+  --secondary-s: 4%;
+  --secondary-l: 23%;
+
+  --text: hsla(97, 20%, 42%, 1);
+
+  html, body {
+    font-family: $base-font-family-proggy;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $base-headline-font-family-proggy;
+  }
+
+
+  .slm-element--highlighed {
+    color: var(--primary);
+  }
+
+  input, textarea {
+    &::placeholder {
+      color: var(--text) !important;
+    }
+  }
+
+  .btn {
+    color: var(--text) !important;
+  }
+
+
+  .slm-element {
+    background-color: var(--code-background);
+
+    .slm-element__article {
+      flex-direction: row-reverse;
+      color: var(--code-green);
+
+
+      .slm-element__article__content__pre {
+        position: relative;
+        color: var(--code-purple);
+        font-family: $base-headline-font-family-proggy;
+        transform: translateX(43px);
+
+        &:before, &:after {
+          font-weight: 400;
+          position: absolute;
+          top: 0;
+          color: var(--code-orange);
+        }
+
+        &:before {
+          content: 'this.';
+          left: -43px;
+        }
+      }
+
+      .slm-element__article__content__headline {
+        position: relative;
+        color: var(--code-orange);
+        font-family: $base-headline-font-family-proggy;
+        transform: translateX(15px);
+
+        &:before, &:after {
+          font-weight: 400;
+          position: absolute;
+          top: 0;
+          color: var(--code-white);
+        }
+
+        &:before {
+          content: '{';
+          left: -15px;
+        }
+
+        &:after {
+          content: '}';
+        }
+      }
+    }
+
+
+    .slm-element__article__content {
+      padding-left: 0;
+    }
+
+    .slm-element__article__media {
+      margin-right: spacing(4);
+    }
+  }
+
+}
+

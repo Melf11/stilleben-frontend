@@ -1,0 +1,25 @@
+.loading-element {
+  position: relative;
+  transition: opacity $base-animation-easing $base-animation-duration;
+
+
+  slm-loading {
+    transition: opacity $base-animation-easing $base-animation-duration;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+
+
+  &.loading-element--is-loading {
+    > * {
+      opacity: .3;
+    }
+
+    slm-loading {
+      opacity: 1;
+    }
+  }
+}

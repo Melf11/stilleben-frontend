@@ -1,0 +1,133 @@
+<div class="slm-form__content" *ngIf="form" [ngClass]="{'slm-form__content--small': form.is_small_form}" [@fadeInOut]>
+
+  <div class="slm-form__content__header">
+    <div class="slm-form__article__header__headline" *ngIf="form.title">
+      <h4>{{ form.title }}</h4>
+    </div>
+    <div class="slm-form__article__header__text" [innerHTML]="markdownRenderer"></div>
+  </div>
+
+  <div class="slm-form__content__form" *ngIf="!(formSuccess || formError)" [@fadeHeightInOut]>
+    <form [formGroup]="formGroup" (submit)="submitForm($event)" *ngIf="formGroup">
+      <ng-container *ngFor="let field of form.form_fields">
+
+        <ng-container [ngSwitch]="field.type">
+
+          <ng-container *ngSwitchCase="formTypes.TEXTFIELD">
+            <slm-textarea [required]="field.is_required"
+                          [rows]="6"
+                          [control]="formGroup.get(field.entity)"
+                          [label]="field.title"
+                          [id]="getIdFromTitle(form.title) + '_' + field.entity"
+                          [placeholder]="field.placeholder"
+                          [help]="field.helpText"
+            ></slm-textarea>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="formTypes.INPUT">
+            <slm-input [required]="field.is_required"
+                       [control]="formGroup.get(field.entity)"
+                       [label]="field.title"
+                       [id]="getIdFromTitle(form.title) + '_' + field.entity"
+                       [placeholder]="field.placeholder"
+                       [help]="field.helpText"
+            ></slm-input>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="formTypes.PASSWORD">
+            <slm-input [required]="field.is_required"
+                       [control]="formGroup.get(field.entity)"
+                       [label]="field.title"
+                       [id]="getIdFromTitle(form.title) + '_' + field.entity"
+                       [placeholder]="field.placeholder"
+                       [help]="field.helpText"
+                       [type]="'password'"
+            ></slm-input>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="formTypes.EMAIL">
+            <slm-input [required]="field.is_required"
+                       [control]="formGroup.get(field.entity)"
+                       [label]="field.title"
+                       [id]="getIdFromTitle(form.title) + '_' + field.entity"
+                       [placeholder]="field.placeholder"
+                       [help]="field.helpText"
+                       [type]="'email'"
+            ></slm-input>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="formTypes.CHECKBOX">
+            <div class="checkbox">
+              <input type="checkbox"
+                     id="checkbox_{{ getIdFromTitle(form.title) }}_{{ field.entity }}"
+                     [formControlName]="field.entity"/>
+              <label for="checkbox_{{ getIdFromTitle(form.title) }}_{{ field.entity }}">
+                <span class="checkbox-label">{{ field.title }}</span>
+              </label>
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="formTypes.SWITCH">
+            <slm-switch [id]="'switch_' + getIdFromTitle(form.title) + '_' + field.entity"
+                        [control]="formGroup.get(field.entity)">
+            </slm-switch>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+
+      <div class="action-bar">
+        <div class="action-bar__item">
+          <button class="btn" type="cancel" *ngIf="form.cancel_button_text">{{ form.cancel_button_text }}</button>
+        </div>
+        <div class="action-bar__item">
+          <button slm-btn class="btn"
+                  type="submit"
+                  [loading]="requestPending"
+                  [disabled]="formGroup.invalid"
+                  *ngIf="form.submit_button_text">{{ form.submit_button_text }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="slm-form__content__state-message" [ngClass]="{'slm-form__content__state-message--success': formSuccess, 'slm-form__content__state-message--error': formError}"
+       *ngIf="formSuccess || formError"
+       [@fadeInOut]>
+    <div class="slm-form__content__state-message__text" >
+      <ng-container *ngIf="formSuccess">
+        <div [innerHTML]="getMarkdownFrom(form.success_message)"></div>
+
+        <div class="form-content" *ngIf="formGroup.get('email')">
+          <div class="form-content__name"><span>Name: </span><br>{{ formGroup.get('name')?.value }}</div>
+          <div class="form-content__email"><span>Email: </span><br>{{ formGroup.get('email')?.value }}</div>
+          <div class="form-content__message"><span>Message: </span><br>{{ formGroup.get('message')?.value }}</div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="formError">
+        <div [innerHTML]="getMarkdownFrom(form.error_message)"></div>
+
+        <div class="form-content" *ngIf="formErrorMessage">
+          <div class="form-content__name"><span>Status Code: </span><br>{{ formErrorMessage.error.statusCode }}</div>
+          <div class="form-content__email"><span>Error: </span><br>{{ formErrorMessage.error.error }}</div>
+          <div class="form-content__message"><span>Message: </span><br>{{ formErrorMessage.error.message }}</div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="action-bar" *ngIf="formError">
+      <div class="action-bar__item">
+        <button class="btn" type="cancel" (click)="clearForm()" >Reset Form</button>
+      </div>
+      <div class="action-bar__item">
+        <slm-button class="btn"
+                [loading]="requestPending"
+                type="submit"
+                (click)="submitForm($event)"
+                [disabled]="formGroup.invalid">
+          Try Again
+        </slm-button>
+      </div>
+    </div>
+  </div>
+</div>

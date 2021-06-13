@@ -1,0 +1,159 @@
+//
+// alert
+// ---------------------------------------------------------
+
+$alert-padding-x: spacing(2);
+$alert-padding-y: spacing();
+$alert-font-weight: getFontWeight(medium);
+$alert-height: spacing(5);
+$alert-z-index: 1600;
+
+.alert {
+  padding: $alert-padding-y $alert-padding-x;
+  margin-bottom: $alert-padding-y;
+  z-index: 1400;
+  box-shadow: $base-box-shadow;
+
+  .alert__title {
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: .6;
+    font-size: 16px;
+  }
+
+  .alert__body {
+    font-weight: $alert-font-weight;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .alert__close {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    opacity: .3;
+    transition: $base-animation;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  &.alert--success {
+    background: var(--success-light);
+    color: var(--success-dark);
+
+    .icon {
+      color: var(--success-dark);
+    }
+
+  }
+
+  &.alert--error, &.alert--danger {
+    background: var(--error-light);
+    color: var(--error-dark);
+
+    .icon {
+      color: var(--error-dark);
+    }
+  }
+
+  &.alert--warning, &.alert--warning {
+    background: var(--warning-light);
+    color: var(--warning-dark);
+
+    .icon {
+      color: var(--warning-dark);
+    }
+  }
+
+  //
+  //@each $name, $color in map-merge($colors, $states) {
+  //  &.alert--#{'' + $name} {
+  //    background: $color;
+  //    color: color-contrast($color);
+  //
+  //    .icon {
+  //      color: color-contrast($color);
+  //    }
+  //
+  //    @if $color == 'success' {
+  //      @include textSelection(getColor(white), color-contrast($color));
+  //    } @else {
+  //      @include textSelection($color, color-contrast($color));
+  //    }
+  //  }
+  //}
+}
+
+.flash {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: $alert-z-index;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.alert {
+    min-height: $alert-height;
+    line-height: 1;
+  }
+
+  @include media-breakpoint-up(sm) {
+    @include paddingHorizontal(spacing(4));
+  }
+}
+
+
+
+.alert-box {
+  position: fixed;
+  z-index: 1200;
+  overflow: hidden;
+  left: unset;
+  top: spacing(13);
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  .alert {
+    position: relative;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+
+    @include paddingHorizontal(spacing(3));
+    @include paddingVertical(spacing(1.5));
+
+    &.alert--error {
+      color: var(--text) !important;
+
+      .icon {
+        color: var(--text) !important;
+      }
+    }
+  }
+
+
+  .flash.alert {
+    min-height: unset;
+  }
+
+  @include media-breakpoint-up(md){
+    top: spacing(12);
+    padding-right: spacing(4);
+    right: 0;
+    width: unset;
+    min-width: 300px;
+    max-width: 400px;
+  }
+
+  &.alert-box--no-navigation {
+    top: spacing(2.5);
+  }
+}

@@ -1,0 +1,99 @@
+//////////////////////////////////////////////////
+// @company: Radio Koch Marine Elektronik
+// @author: Melf Stöcken
+//////////////////////////////////////////////////
+// @project: Radio Koch Marine Elektronik GmbH
+//////////////////////////////////////////////////
+//
+// Typo
+//////////////////////////////////////////////////
+
+$text-class: 'text';
+
+$base-font-family: 'Coming Soon', Helvetica, Futura, sans-serif !default;
+$base-headline-font-family: 'Shadows Into Light', Helvetica, Futura, sans-serif !default;
+
+$base-font-family-proggy: 'JetBrains Mono', Helvetica, Futura, sans-serif !default;
+$base-headline-font-family-proggy: 'JetBrains Mono', Helvetica, Futura, sans-serif !default;
+
+
+$base-font-size: 14px !default;
+$base-line-height: 1.6em !default;
+$base-letter-spacing: 0.02em !default;
+
+$headline-line-height: 1.2em !default;
+$headline-letter-spacing: 0 !default;
+
+
+
+// Line Heights
+// ---------------------------------------------------------
+
+$line-heights: (
+  xs: 1em,
+  sm: 1.3em,
+  md: 1.5em,
+  base: 1.6em,
+  lg: 1.8em
+);
+
+@function getLineHeight($height: base) {
+  @return map_get($line-heights, $height)
+}
+
+// Font Sizes
+// ---------------------------------------------------------
+
+$font-sizes: (
+  xs: 10px,
+  sm: 12px,
+  md: 14px,
+  base: 16px,
+  lg: 18px,
+  xl: 20px,
+);
+
+@function getFontSize($size) {
+  @return map_get($font-sizes, $size)
+}
+
+// Font Weights
+// ---------------------------------------------------------
+
+$font-weights: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  bold: 700
+);
+
+@function getFontWeight($weight: regular) {
+  @return map_get($font-weights, $weight)
+}
+
+
+// calculations for font-sizes
+// ---------------------------------------------------------
+
+@function calculateRemFontSize($size) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRemFontSize($size);
+}
+
+// calculations for line-heights
+// ---------------------------------------------------------
+
+@function calculateRemLineHeight($size) {
+  $remSize: $size * $base-line-height;
+  @return #{$remSize};
+}
+
+@mixin lineHeightSize($size) {
+  line-height: $size; //Fallback in px
+  line-height: calculateRemLineHeight($size);
+}

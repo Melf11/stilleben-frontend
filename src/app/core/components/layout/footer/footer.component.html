@@ -1,0 +1,9 @@
+<div class="slm-footer__copyright">© {{ currentYear }} - {{ _environment.title }}</div>
+<div class="slm-footer__nav">
+  <ul class="slm-footer__nav__list" *ngIf="navigationService.footerNavPages">
+    <li class="slm-footer__nav__list__item" *ngFor="let item of navigationService.footerNavPages">
+      <a [routerLink]="'/' + translateService.currentLang + '/' + sectionId(item.title)">{{ item.title }}</a>
+    </li>
+  </ul>
+</div>
+

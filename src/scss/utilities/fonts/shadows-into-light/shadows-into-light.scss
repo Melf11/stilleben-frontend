@@ -1,0 +1,13 @@
+/* shadows-into-light-regular - latin */
+@font-face {
+  font-family: 'Shadows Into Light';
+  font-style: normal;
+  font-weight: 400;
+  src: url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+  url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+  url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url($path-to-fonts + 'shadows-into-light/shadows-into-light-v10-latin-regular.svg#ShadowsIntoLight') format('svg'); /* Legacy iOS */
+  }

@@ -1,0 +1,16 @@
+<div [ngClass]="{'alert-box': isAlertBox}">
+  <div class="alert alert--{{ item.type }} flash"  *ngFor="let item of _alerts" [@slideRightOut] (@slideRightOut.done)="removeAlertWithTimeout(item)">
+    <div class="alert__title" *ngIf="item.title">
+      {{ item.title }}
+    </div>
+    <div class="alert__body" *ngIf="item.message">
+      {{ item.message }}
+    </div>
+
+    <div class="alert__close" *ngIf="closeable">
+      <div class="icon" (click)="removeAlert(item)">
+        <i class="fas fa-times"></i>
+      </div>
+    </div>
+  </div>
+</div>

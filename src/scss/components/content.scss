@@ -1,0 +1,29 @@
+.slm-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  .slm-content__header {
+    display: flex;
+    margin-bottom: spacing(4);
+
+    .slm-content__header__aside {
+      flex-basis: calc(25% - #{spacing(4)});
+      margin-right: spacing(4);
+    }
+    .slm-content__header__main {
+      flex-basis: 75%;
+    }
+  }
+  .slm-content__content {
+    display: flex;
+
+    .slm-content__content__aside {
+      flex-basis: 25%;
+    }
+
+    .slm-content__content__main {
+      flex-basis: 75%;
+    }
+  }
+}
