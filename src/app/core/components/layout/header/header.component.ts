@@ -15,7 +15,7 @@ import {NavigationService} from '../../../services/navigation.service';
 import {FrontendService} from '../../../services/frontend.service';
 import {TranslateService} from '@ngx-translate/core';
 import {DOCUMENT, isPlatformBrowser} from '@angular/common';
-import {Animations} from "../../../../layout/utils/animations";
+import {Animations} from '../../../../layout/utils/animations';
 
 @Component({
   selector: 'slm-header-component',
@@ -35,6 +35,7 @@ export class SlmHeaderComponent implements OnInit, OnDestroy {
   sectionListHidden = true;
   sectionListRightAlign = false;
   sectionHiddenTimeout: any | null;
+  switchAnimated = true;
 
   navElements: Array<HTMLElement> = [];
   subscriptions: Array<Subscription> = [];
@@ -66,6 +67,12 @@ export class SlmHeaderComponent implements OnInit, OnDestroy {
     } else {
       this._document.getElementById('slm-header-global')?.classList.remove('slm-header--small');
       this._document.getElementById('back-to-top-button')?.classList.add('back-to-top--hidden');
+
+      this.switchAnimated = true;
+      setTimeout(() => {
+        this.switchAnimated = false;
+      }, 5000);
+
       this.initSectionMenu();
     }
 
@@ -110,6 +117,10 @@ export class SlmHeaderComponent implements OnInit, OnDestroy {
         if (el) { this.navElements.push(el); }
       }
     });
+
+    setTimeout(() => {
+      this.switchAnimated = false;
+    }, 10000);
   }
 
   ngOnDestroy() {

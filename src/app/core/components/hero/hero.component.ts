@@ -12,7 +12,7 @@ import {MarkdownService} from 'ngx-markdown';
 import {DOCUMENT} from '@angular/common';
 import {PageInterface} from '../../interfaces/page.interface';
 import {NavigationService} from '../../services/navigation.service';
-import {environment} from "../../../../environments/environment";
+import {environment} from '../../../../environments/environment';
 
 @Component({
     selector: 'slm-hero-component',

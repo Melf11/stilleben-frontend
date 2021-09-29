@@ -70,24 +70,18 @@
     width: 100%;
     position: relative;
 
+    .slm-hero__content__geek, .slm-hero__content__normal {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      transition: $base-animation;
+    }
+
     .slm-hero__content__geek {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .slm-hero__content__normal {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-    }
-
-
-    img {
-      max-width: 70%;
+      img {
+        max-width: 70%;
+      }
     }
   }
 

@@ -2,8 +2,36 @@
   opacity: .8;
   transition: $base-animation;
 
+  &.color-theme-switch--animated {
+    animation: blinker 5s infinite;
+  }
+
   &:hover {
     cursor: pointer;
     color: var(--tertiary);
+    transform: scale(1.2) !important;
+    animation: none;
+  }
+}
+
+
+@keyframes blinker {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1);
+    color: var(--text);
+  }
+  40% {
+    transform: scale(1.2);
+    color: var(--tertiary);
+  }
+  43% {
+    transform: scale(.9);
+    color: var(--text);
+  }
+  46% {
+    transform: scale(1);
   }
 }

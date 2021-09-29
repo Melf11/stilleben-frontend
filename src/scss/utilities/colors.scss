@@ -89,6 +89,13 @@
     background-color: alpha(var(--primary), .90);
   }
 
+  .slm-hero__content {
+    .slm-hero__content__geek {
+      left: 100%;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
 }
 
 :root[data-theme="theme-dark"] {
@@ -190,6 +197,16 @@
     color: var(--text) !important;
   }
 
+  .slm-hero__content {
+    .slm-hero__content__geek {
+
+    }
+    .slm-hero__content__normal {
+      left: 0;
+      filter: blur(10px);
+      transform: translate(-50%, -50%) scale(0);
+    }
+  }
 
   .slm-element {
     background-color: var(--code-background);
@@ -253,4 +270,3 @@
   }
 
 }
-

@@ -11,11 +11,11 @@
         <li class="slm-header__pre__nav__list__item" (click)="switchColorTheme()">
           <ng-container [ngSwitch]="theme">
 
-            <div *ngSwitchCase="'theme-dark'" class="color-theme-switch">
+            <div *ngSwitchCase="'theme-dark'" class="color-theme-switch" [ngClass]="{'color-theme-switch--animated': switchAnimated}">
               i'm just an audiophile, please disable this ugly geek mode
               <i class="fas fa-adjust" ></i>
             </div>
-            <div *ngSwitchCase="'theme-light'" class="color-theme-switch">
+            <div *ngSwitchCase="'theme-light'" class="color-theme-switch" [ngClass]="{'color-theme-switch--animated': switchAnimated}">
               switch(to ? geek$ : _mode).pipe(now())
               <i class="fas fa-adjust"></i>
             </div>
