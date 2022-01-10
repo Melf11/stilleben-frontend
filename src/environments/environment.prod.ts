@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  api: 'https://stillleben-api.hosting155492.a2ee2.netcup.net',
+  api: 'https://api.stillleben.media',
   version: '1.0',
   google_api_key: 'AIzaSyDSerXQiZHW_ooG1IuTFEJFB14IEfstPjw',
   defaultLocale: 'de',
